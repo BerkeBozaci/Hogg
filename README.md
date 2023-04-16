@@ -1,72 +1,59 @@
-Purchasing Advice Web App
-This is a simple Flask web application that calculates purchasing advice based on sales orders, available stock, and bill of materials (BOM). The app displays the purchasing advice in a table format, which can be styled using Bootstrap.
+#Flask Purchasing Advice Web Application
+This is a Flask web application that calculates and displays purchasing advice based on sales orders, current stock levels, and bills of materials (BOMs).
 
-Dependencies
-To run the app, you will need to have the following dependencies installed:
+##Requirements##
+To run this web application, you will need the following:
 
-Python 3
+* Python 3.7 or higher
+Flask
+Flask SQLalchemy
 PostgreSQL
-virtualenv (optional, but recommended)
-You can install Python 3 and PostgreSQL from their respective official websites. To install virtualenv, you can use pip:
-
-sh
-Copy code
-pip install virtualenv
+Docker
 Installation
-Clone the repository:
+1. Clone the Repository
+Clone this repository to your local machine using the following command:
 
-sh
+bash
 Copy code
-git clone https://github.com/your-username/purchasing-advice-web-app.git
-cd purchasing-advice-web-app
-Create a virtual environment (optional, but recommended):
+git clone https://github.com/[USERNAME]/[REPOSITORY-NAME].git
+2. Set Up a Virtual Environment (Optional)
+You can set up a virtual environment for this project by running the following commands in the project directory:
 
-sh
+bash
 Copy code
-virtualenv env
-source env/bin/activate  # Linux/macOS
-env\Scripts\activate  # Windows
-Install the Python dependencies:
+python3 -m venv venv
+source venv/bin/activate
+3. Install Dependencies
+Install the required Python packages by running the following command in the project directory:
 
-sh
+bash
 Copy code
 pip install -r requirements.txt
-Create a PostgreSQL database:
+4. Set Up the Database
+Create a PostgreSQL database named hogg_db and a user named postgres with the password postgres. You can use any other username and password, but be sure to update the SQLALCHEMY_DATABASE_URI value in the config.py file accordingly.
 
-sh
-Copy code
-createdb hogg_db
-Initialize the database:
+Then, create the required tables in the database by running the following command:
 
-sh
+bash
 Copy code
-python manage.py db upgrade
+flask db upgrade
+5. Insert Sample Data
+Insert sample data into the database by running the following command:
+
+bash
+Copy code
 python insert_data.py
-The insert_data.py script will populate the database with some sample data.
+6. Start the Application
+You can start the application by running the following command in the project directory:
 
-Run the app:
-
-sh
+bash
 Copy code
 python run.py
-Open a web browser and go to http://127.0.0.1:5000/ to see the app.
+Alternatively, you can build and run the Docker image by running the following commands in the project directory:
 
+bash
+Copy code
+docker build -t [DOCKER-IMAGE-NAME] .
+docker run -p 5000:5000 [DOCKER-IMAGE-NAME]
 Usage
-The app displays a table with the purchasing advice based on the available data. The purchasing advice shows which raw materials should be purchased to fulfill the sales orders based on the BOM and available stock.
-
-You can customize the sales orders, stock, and BOM data by modifying the insert_data.py script. You can also customize the styling of the app by modifying the main.css file.
-
-Docker
-Alternatively, you can run the app using Docker. To do so, follow these steps:
-
-Build the Docker image:
-
-sh
-Copy code
-docker build -t purchasing-advice-web-app .
-Run the Docker container:
-
-sh
-Copy code
-docker run -p 5000:5000 purchasing-advice-web-app
-Open a web browser and go to http://localhost:5000/ to see the app.
+Once the application is running, you can access it by visiting http://127.0.0.1:5000 in your web browser. The main page will display a table of purchasing advice based on the sample data in the database.
