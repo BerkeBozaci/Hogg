@@ -22,12 +22,12 @@ You can set up a virtual environment for this project by running the following c
 
 
 `python3 -m venv venv`
-`source venv/bin/activate`
+<br> `source venv/bin/activate`
 ### 3. Install Dependencies ###
 Install the required Python packages by running the following command in the project directory:
 
 `pip install -r requirements.txt`
-###4. Set Up the Database###
+### 4. Set Up the Database ###
 Create a PostgreSQL database named hogg_db and a user named postgres with the password postgres. You can use any other username and password, but be sure to update the SQLALCHEMY_DATABASE_URI value in the config.py file accordingly.
 
 Then, create the required tables in the database by running the following command:
@@ -49,6 +49,6 @@ Alternatively, you can build and run the Docker image by running the following c
 
 
 `docker build -t [DOCKER-IMAGE-NAME] .`
-`docker run -p 5000:5000 [DOCKER-IMAGE-NAME]`
+<br>`docker run -p 5000:5000 [DOCKER-IMAGE-NAME]`
 ## Usage ##
 Once the application is running, you can access it by visiting http://127.0.0.1:5000 in your web browser. The main page will display a table of purchasing advice based on the sample data in the database.
