@@ -1,12 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <title>HOGG Material Resource Planning</title>
-  </head>
-  <body>
-    <h1>Welcome To HOGG Material Resource Planning</h1>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchasing Advice</title>
+</head>
+<body>
+    <h1>Purchasing Advice</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for advice in purchasing_advice %}
+                <tr>
+                    <td>{{ advice['code'] }}</td>
+                    <td>{{ advice['quantity'] }}</td>
+                    <td>{{ advice['unit'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
 </html>
+
