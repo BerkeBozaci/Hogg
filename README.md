@@ -21,8 +21,8 @@ Clone this repository to your local machine using the following command:
 You can set up a virtual environment for this project by running the following commands in the project directory:
 
 
-`python3 -m venv venv
-source venv/bin/activate`
+`python3 -m venv venv`
+`source venv/bin/activate`
 ### 3. Install Dependencies ###
 Install the required Python packages by running the following command in the project directory:
 
@@ -48,7 +48,7 @@ You can start the application by running the following command in the project di
 Alternatively, you can build and run the Docker image by running the following commands in the project directory:
 
 
-`docker build -t [DOCKER-IMAGE-NAME] .
-docker run -p 5000:5000 [DOCKER-IMAGE-NAME]`
+`docker build -t [DOCKER-IMAGE-NAME] .`
+`docker run -p 5000:5000 [DOCKER-IMAGE-NAME]`
 ## Usage ##
 Once the application is running, you can access it by visiting http://127.0.0.1:5000 in your web browser. The main page will display a table of purchasing advice based on the sample data in the database.
