@@ -11,7 +11,6 @@ def index():
     boms = BOM.query.all()
 
     purchasing_advice = calculate_purchasing_advice(sales_orders, stocks, boms)
-    print("Purchasing advice:", purchasing_advice)
     return render_template('index.html', purchasing_advice=purchasing_advice)
 
 def calculate_purchasing_advice(sales_orders, stocks, boms):
@@ -57,4 +56,5 @@ def calculate_purchasing_advice(sales_orders, stocks, boms):
             unit = "pieces"  # You can adjust the unit based on your requirements
             advice = {"code": raw_code, "quantity": purchase_quantity, "unit": unit}
             purchasing_advice.append(advice)
+
     return purchasing_advice

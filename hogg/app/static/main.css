@@ -1,0 +1,15 @@
+body{
+    background-color: #57C5B6;
+    color: #002B5B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table{
+    background-color: #159895;
+    border-radius: 1rem;
+    padding: 5vh;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,25 +1,16 @@
-import click
-from flask import Flask, current_app
-from flask.cli import with_appcontext
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from config import Config
 
 db = SQLAlchemy()
 
-def create_app():
+def create_app(config_object=None):
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/hogg_db'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+    app.config.from_object(config_object or Config)
     db.init_app(app)
 
-    @click.command("init-db")
-    @with_appcontext
-    def init_db_command():
-        """Initialize the database."""
+    with app.app_context():
         db.create_all()
-        click.echo("Initialized the database.")
-        
-    app.cli.add_command(init_db_command)
 
     from .routes import main
     app.register_blueprint(main)

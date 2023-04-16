@@ -3,28 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchasing Advice</title>
+    <link rel="stylesheet" href="../static/main.css">
+    <link rel="icon" href="./images/shopping-cart.png">
+    <!-- Add Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kD4Ck5BdPtF+to8xMkQ69IdF" crossorigin="anonymous">
+
+    <title>Purchasing Advices</title>
 </head>
 <body>
-    <h1>Purchasing Advice</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Quantity</th>
-                <th>Unit</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for advice in purchasing_advice %}
-                <tr>
-                    <td>{{ advice['code'] }}</td>
-                    <td>{{ advice['quantity'] }}</td>
-                    <td>{{ advice['unit'] }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="purchase_advice-div">
+            <h1 class="my-4">Purchasing Advices</h1>
+            
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Code</th>
+                        <th>Quantity</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for advice in purchasing_advice %}
+                        <tr>
+                            <td>{{ advice['code'] }}</td>
+                            <td>{{ advice['quantity'] }}</td>
+                            <td>{{ advice['unit'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and its dependencies jQuery and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSGFpoO9Xya-20Q0n062DwzTr_1x1z8EXF7rC8SEXi_-E7E91e_mD" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoJtKh7z7lGz7fuP4F8nfdFvAOA6Gg/rZl4H8Q2DLpfC0/2b3nI" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-M7XA0bDp_zHN1Dz_ORpWotrAF64N1g4WOgJRYW_i0q3v8Ezv6l0W-55_X5gDxi1_Up" crossorigin="anonymous"></script>
 </body>
 </html>
-
